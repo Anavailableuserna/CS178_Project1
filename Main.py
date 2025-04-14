@@ -91,7 +91,7 @@ def display_html(rows):
 def popularity():
     rows = execute_query("""SELECT movie_id, title, popularity
                         FROM movie
-                        ORDER BY popularity
+                        ORDER BY popularity DESC
                         Limit 10""")
     return display_html(rows)
 
