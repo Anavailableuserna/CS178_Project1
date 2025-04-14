@@ -90,7 +90,7 @@ def display_html(rows):
 @app.route('/popularity')
 def popularity():
     rows = execute_query("""SELECT movie_id, title, popularity
-                        FROM movies
+                        FROM movie
                         ORDER BY popularity
                         Limit 10""")
     return display_html(rows)
