@@ -70,7 +70,7 @@ def get_conn():
     )
     return conn
 
-def execute_query(query, args()):
+def execute_query(query, args):
     cur = get_conn().cursor()
     cur.execute(query, args)
     rows = cur.fetchall()
