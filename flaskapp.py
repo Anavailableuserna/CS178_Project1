@@ -22,7 +22,7 @@ def add_user():
         genre = request.form['genre']
         movie = request.form['movie']
         rating = request.form['rating']
-        print(rating)
+        
         create_user(name, language, genre, movie, rating)
         
         flash('User added successfully!', 'success')  # 'success' is a category; makes a green banner at the top
