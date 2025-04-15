@@ -1,6 +1,8 @@
 
 import boto3
 from flask import flash
+session = boto3.Session()
+dynamodb = session.client('dynamodb')
 
 TABLE_NAME = "Movies"
 
