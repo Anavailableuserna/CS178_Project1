@@ -20,6 +20,7 @@ def create_user(name, language, genre, movie, rating):
         print(type(language))
         print(type(genre))
         print(type(movie))
+        rating = int(rating)
         print(type(rating))
 
 
