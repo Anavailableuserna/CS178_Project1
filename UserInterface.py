@@ -1,6 +1,6 @@
 
 import boto3
-
+from flask import flash
 
 TABLE_NAME = "Movies"
 
@@ -21,7 +21,7 @@ def create_user(name, language, genre, movie, rating):
                 }
             )
     except:
-        print("There was an error when creating the user", 'failure')
+        flash("There was an error when creating the user", 'failure')
         return
 
 
