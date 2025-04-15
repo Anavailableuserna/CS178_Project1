@@ -19,10 +19,12 @@ def add_user():
     if request.method == 'POST':
         # Extract form data
         name = request.form['name']
+        language = request.form['language']
         genre = request.form['genre']
+        movie = request.form['movie']
+        rating = request.form['rating']
         
-        create_user(name, )
-        print("Name:", name, ":", "Favorite Genre:", genre)
+        create_user(name, language, genre, movie, rating)
         
         flash('User added successfully!', 'success')  # 'success' is a category; makes a green banner at the top
         # Redirect to home page or another page upon successful submission
