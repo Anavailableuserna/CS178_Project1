@@ -5,11 +5,11 @@ from flask import flash
 TABLE_NAME = "Movies"
 
         
-dynamodb = boto3.resource('dynamodb', region_name="us-west-2")
+dynamodb = boto3.resource('dynamodb', region_name="us-east-1")
 table = dynamodb.Table(TABLE_NAME)
 
 session = boto3.Session()
-dynamodb = session.client('dynamodb')
+dynamodb = session.client('dynamodb', region_name="us-east-1")
 
 
 def create_user(name, language, genre, movie, rating):
