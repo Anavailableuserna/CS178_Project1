@@ -15,9 +15,9 @@ def create_user(name, language, genre, movie, rating):
         table.put_item(
             Item={
                 'Username': str(name),
-                'Preferred_Language' : str(language),
                 'Favorite_Genre' : str(genre),
                 'Favorite_Movie' : str(movie),
+                'Preferred_Language' : str(language),
                 'Rating' : int(rating)
                 }
             )
