@@ -8,13 +8,8 @@ dynamodb = boto3.resource('dynamodb', region_name="us-east-1")
 table = dynamodb.Table(TABLE_NAME)
 
 
-def create_user(name, language, genre, movie, rating):
+def create_user(str(name), str(language), str(genre), str(movie), int(rating)):
     try:
-        name = str(name)
-        language = str(language)
-        genre = str(genre)
-        movie = str(movie)
-        rating = int(rating)
 
         table.put_item(
             Item={
