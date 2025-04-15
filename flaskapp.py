@@ -22,9 +22,16 @@ def add_user():
         genre = request.form['genre']
         movie = request.form['movie']
         rating = request.form['rating']
-        
-        create_user(name, language, genre, movie, rating)
-        
+        table.put_item(
+            Item={
+                'Username': name,
+                'Favorite_Genre' : genre,
+                'Favorite_Movie' : movie,
+                'Preferred_Language' : language,
+                'Rating' : int(rating)
+                }
+            )
+
         flash('User added successfully!', 'success')  # 'success' is a category; makes a green banner at the top
         # Redirect to home page or another page upon successful submission
         return redirect(url_for('home'))
