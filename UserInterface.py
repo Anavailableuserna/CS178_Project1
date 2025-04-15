@@ -10,11 +10,7 @@ table = dynamodb.Table(TABLE_NAME)
 
 def create_user(name, language, genre, movie, rating):
     try:
-        name = "wow"
-        language = "English"
-        genre = "action"
-        movie = "Pulp"
-        rating = 99
+
         table.put_item(
             Item={
                 'Username': name,
