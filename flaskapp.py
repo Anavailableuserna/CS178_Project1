@@ -22,6 +22,10 @@ def add_user():
         genre = request.form['genre']
         movie = request.form['movie']
         rating = request.form['rating']
+        import boto3
+        TABLE_NAME = "Movies"
+        dynamodb = boto3.resource('dynamodb', region_name="us-east-1")
+        table = dynamodb.Table(TABLE_NAME)
         table.put_item(
             Item={
                 'Username': name,
