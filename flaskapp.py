@@ -18,7 +18,7 @@ def home():
 def add_user():
     if request.method == 'POST':
         # Extract form data
-        name = request.form['name']
+        name = request.form['username']
         language = request.form['language']
         genre = request.form['genre']
         movie = request.form['movie']
