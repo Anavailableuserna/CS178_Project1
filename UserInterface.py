@@ -1,14 +1,15 @@
 
 import boto3
 from flask import flash
-session = boto3.Session()
-dynamodb = session.client('dynamodb')
 
 TABLE_NAME = "Movies"
 
         
 dynamodb = boto3.resource('dynamodb', region_name="us-east-1")
 table = dynamodb.Table(TABLE_NAME)
+
+session = boto3.Session()
+dynamodb = session.client('dynamodb')
 
 
 def create_user(name, language, genre, movie, rating):
