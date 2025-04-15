@@ -7,25 +7,21 @@ dynamodb = boto3.resource('dynamodb', region_name="us-east-1")
 table = dynamodb.Table(TABLE_NAME)
 
 
-def create_movie():
+def create_user(name, language, genre, movies, rating):
     try:
-        name = str(input("What is the movie name? "))
-        year = int(input("What year was it made? "))
-        director = str(input("Who was the director of the movie? "))
-        rating = input("What was the rating of this movie? ")
-        ratinglist = [rating]
 
         table.put_item(
             Item={
-                'Title': name,
-                'Year' : year,
-                'Director' : director,
+                'Username': name,
+                'Preferred_Language' : language,
+                'Favorite_Genre' : genre,
+                'Movies_Watched' : movies,
                 'Ratings' : ratinglist
                 }
             )
         print("creating a movie")
     except:
-        print("There was an error when adding the movie")
+        flash("There was an error when creating the user", 'failure')
         return
 
 

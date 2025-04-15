@@ -3,6 +3,7 @@ from flask import Flask
 from flask import render_template
 from flask import Flask, render_template, request, redirect, url_for, flash
 from dbCode import *
+from UserInterface import *
 
 
 app = Flask(__name__)
@@ -20,8 +21,7 @@ def add_user():
         name = request.form['name']
         genre = request.form['genre']
         
-        # Process the data (e.g., add it to a database)
-        # For now, let's just print it to the console
+        create_user(name, )
         print("Name:", name, ":", "Favorite Genre:", genre)
         
         flash('User added successfully!', 'success')  # 'success' is a category; makes a green banner at the top
