@@ -17,7 +17,7 @@ def create_user(name, language, genre, movie, rating):
                 'Preferred_Language' : language,
                 'Favorite_Genre' : genre,
                 'Favorite_Movie' : movie,
-                'Ratings' : rating
+                'Rating' : rating
                 }
             )
     except:
