@@ -52,7 +52,8 @@ def delete_user():
 def display_users():
     # hard code a value to the users_list;
     # note that this could have been a result from an SQL query :) 
-    users_list = (('Joe','Doe','Comedy'),('Jane', 'Doe','Drama'))
+    mycursor.execute('SELECT * FROM Movies')
+    users_list = mycursor.fetchall()
     return render_template('display_users.html', users = users_list)
 
 
