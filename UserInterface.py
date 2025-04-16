@@ -43,7 +43,7 @@ def display_user():
     for user in response["Items"]:
         user_list.append((user["Username"], user['Preferred_Language'], user['Favorite_Genre'], user['Favorite_Movie'], user['Rating']))
     return user_list
-def update_rating():
+def change_user(username, language, genre, movie, rating):
     try:
         title=input("What is the movie title? ")
         rating = int(input("What is the rating: "))

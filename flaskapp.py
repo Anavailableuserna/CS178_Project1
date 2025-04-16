@@ -55,7 +55,17 @@ def display_users():
     users_list = display_user()
     return render_template('display_users.html', users = users_list)
 
+@app.route('/update-users', methods=['GET', 'POST'])
+def update_users():
+    if request.method == 'POST':
+        language = request.form['language']
+        genre = request.form['genre']
+        movie = request.form['movie']
+        rating = request.form['rating']
 
+        change_user(username, language, genre, movie, rating)
+    else:
+        return render_template('update_user.html')
 @app.route('/popularity')
 def popularity():
     rows = execute_query("""SELECT movie_id, title, popularity
