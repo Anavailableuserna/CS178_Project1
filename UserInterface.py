@@ -38,9 +38,11 @@ def print_movie(movie_dict):
 
 def display_user():
     response = table.scan() #get all of the movies
-    for movie in response["Items"]:
-        print_movie(movie)
-
+    rows = 0
+    user_list= []
+    for user in response["Items"]:
+        user_list.append((user["Username"], user['Favorite_Genre'], user['Favorite_Movie'], user['Preferred_Language'], user['Rating']))
+    return user_list
 def update_rating():
     try:
         title=input("What is the movie title? ")
