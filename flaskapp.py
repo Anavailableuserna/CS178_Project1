@@ -58,6 +58,7 @@ def display_users():
 @app.route('/update-user', methods=['GET', 'POST'])
 def update_user():
     if request.method == 'POST':
+        name = request.form['username']
         language = request.form['language']
         genre = request.form['genre']
         movie = request.form['movie']
