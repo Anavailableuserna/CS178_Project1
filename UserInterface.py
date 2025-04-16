@@ -49,7 +49,7 @@ def change_user(name, language, genre, movie, rating):
         for user in response["Items"]:
             user_list.append((user["Username"]))
         if name not in user_list:
-            raise ValueError():
+            raise ValueError()
         
         table.update_item(
             Key = {"Username": name}, 
