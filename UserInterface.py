@@ -41,7 +41,7 @@ def display_user():
     rows = 0
     user_list= []
     for user in response["Items"]:
-        user_list.append((user["Username"], user['Favorite_Genre'], user['Favorite_Movie'], user['Preferred_Language'], user['Rating']))
+        user_list.append((user["Username"], user['Preferred_Language'], user['Favorite_Genre'], user['Favorite_Movie'], user['Rating']))
     return user_list
 def update_rating():
     try:
