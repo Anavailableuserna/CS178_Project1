@@ -45,11 +45,7 @@ def display_user():
     return user_list
 def change_user(name, language, genre, movie, rating):
     try:
-        user_list= []
-        for user in response["Items"]:
-            user_list.append((user["Username"]))
-        if name not in user_list:
-            raise ValueError()
+
         
         table.update_item(
             Key = {"Username": name}, 
@@ -73,7 +69,7 @@ def change_user(name, language, genre, movie, rating):
         )
         flask("User updated", "success")
     except:
-        print("error in updating user")
+        flask("error in updating user")
 
 
 
