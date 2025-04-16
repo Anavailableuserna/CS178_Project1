@@ -45,25 +45,31 @@ def display_user():
     return user_list
 def change_user(name, language, genre, movie, rating):
     try:
+        user_list= []
+        for user in response["Items"]:
+            user_list.append((user["Username"]))
+        if user name not in user_list
+            throw Exception():
+        
         table.update_item(
             Key = {"Username": name}, 
-            UpdateExpression = "SET Preferred_Language = list_append(Preferred_Language, :r)", 
-            ExpressionAttributeValues = {':r': [language],}
+            UpdateExpression = "SET Preferred_Language = :str", 
+            ExpressionAttributeValues = {':str': language,}
         )
         table.update_item(
             Key = {"Username": name}, 
-            UpdateExpression = "SET Favorite_Genre = list_append(Favorite_Genre, :r)", 
-            ExpressionAttributeValues = {':r': [genre],}
+            UpdateExpression = "SET Favorite_Genre = :str", 
+            ExpressionAttributeValues = {':str': genre,}
         )
         table.update_item(
             Key = {"Username": name}, 
-            UpdateExpression = "SET Favorite_Movie = list_append(Favorite_Movie, :r)", 
-            ExpressionAttributeValues = {':r': [movie],}
+            UpdateExpression = "SET Favorite_Movie = :str", 
+            ExpressionAttributeValues = {':str': movie,}
         )
         table.update_item(
             Key = {"Username": name}, 
-            UpdateExpression = "SET Rating = list_append(Rating, :r)", 
-            ExpressionAttributeValues = {':r': [rating],}
+            UpdateExpression = "SET Rating = :r", 
+            ExpressionAttributeValues = {':r': rating,}
         )
         flask("User updated", "success")
     except:
