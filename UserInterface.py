@@ -67,9 +67,9 @@ def change_user(name, language, genre, movie, rating):
             UpdateExpression = "SET Rating = :r", 
             ExpressionAttributeValues = {':r': rating,}
         )
-        flask("User updated", "success")
+        flash("User updated", "success")
     except:
-        flask("error in updating user")
+        flash("error in updating user")
 
 
 
