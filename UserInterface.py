@@ -25,17 +25,6 @@ def create_user(name, language, genre, movie, rating):
         return
 
 
-    
-def print_movie(movie_dict):
-    # print out the values of the movie dictionary
-    print("Title: ", movie_dict["Title"])
-    print("Director: ", movie_dict["Director"])
-    print(" Ratings: ", end="")
-    for rating in movie_dict["Ratings"]:
-        print(rating, end=" ")
-    print(" Year: ", movie_dict.get("Year"))
-    print()
-
 def display_user():
     response = table.scan() #get all of the movies
     rows = 0
@@ -72,8 +61,6 @@ def change_user(name, language, genre, movie, rating):
         flash("error in updating user")
 
 
-
-
 def remove_user(name):
     try:
         table.delete_item(
@@ -84,25 +71,7 @@ def remove_user(name):
         flash("There was an error when creating the user")
         return
 
-def query_movie():
-    """
-    prompt user for the Movie title
-    print out the average review for all reivews in the list
-    """
-    try:
-        moviename = input("What is the name of the movie you want the average of? ")
-        response = table.get_item(
-            Key = {'Title' : moviename}
-        )
-        movie = response.get("Item")
-        ratings_list = movie["Ratings"]
-        if(len(ratings_list) == 0):
-            print("movie has no ratings")
-            return
-        average = sum(ratings_list)/len(ratings_list)
-        print("Average ratings of ", moviename, "is", average)
-    except:
-        print("movie not found")
+
 
 
 
