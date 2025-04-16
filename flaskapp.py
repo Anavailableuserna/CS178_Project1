@@ -56,7 +56,7 @@ def display_users():
     return render_template('display_users.html', users = users_list)
 
 @app.route('/update-user', methods=['GET', 'POST'])
-def update_users():
+def update_user():
     if request.method == 'POST':
         language = request.form['language']
         genre = request.form['genre']
