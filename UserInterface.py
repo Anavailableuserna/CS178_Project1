@@ -45,12 +45,6 @@ def display_user():
     return user_list
 def change_user(username, language, genre, movie, rating):
     try:
-
-        table.update_item(
-            Key = {"Username": username}, 
-            UpdateExpression = "SET Ratings = list_append(Ratings, :r)", 
-            ExpressionAttributeValues = {':r': [rating],}
-        )
         table.update_item(
             Key = {"Username": username}, 
             UpdateExpression = "SET Preferred_Language = list_append(Preferred_Language, :r)", 
