@@ -9,7 +9,7 @@ dynamodb = boto3.resource('dynamodb', region_name="us-east-1")
 table = dynamodb.Table(TABLE_NAME)
 
 def create_user(name, language, genre, movie, rating):
-
+    try:
         table.put_item(
             Item={
                 'Username': name,
@@ -19,7 +19,9 @@ def create_user(name, language, genre, movie, rating):
                 'Rating' : int(rating)
                 }
             )
-
+        flash('User added successfully!', 'success')
+    except:
+        flash("There was an error when creating the user")
         return
 
 
@@ -56,13 +58,15 @@ def update_rating():
 
 
 
-def delete_movie():
-    moviename = input("What is the name of the movie you want to delete? ")
-    table.delete_item(
-        Key = {'Title' : moviename}
-        
-    )
-    print("deleting movie")
+def delete_movie(name):
+    try:
+        table.delete_item(
+            Key = {'Username' : name}
+        )
+        flash('User deleted successfully!', 'success')
+    except:
+        flash("There was an error when creating the user")
+        return
 
 def query_movie():
     """
