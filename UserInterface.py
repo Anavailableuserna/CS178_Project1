@@ -47,23 +47,23 @@ def change_user(name, language, genre, movie, rating):
     try:
         table.update_item(
             Key = {"Username": name}, 
-            UpdateExpression = "SET Preferred_Language = :r)", 
-            ExpressionAttributeValues = {':r': language,}
+            UpdateExpression = "SET Preferred_Language = list_append(Preferred_Language, :r)", 
+            ExpressionAttributeValues = {':r': [language],}
         )
         table.update_item(
             Key = {"Username": name}, 
-            UpdateExpression = "SET Favorite_Genre = :r)", 
-            ExpressionAttributeValues = {':r': genre,}
+            UpdateExpression = "SET Favorite_Genre = list_append(Favorite_Genre, :r)", 
+            ExpressionAttributeValues = {':r': [genre],}
         )
         table.update_item(
             Key = {"Username": name}, 
-            UpdateExpression = "SET Favorite_Movie = :r)", 
-            ExpressionAttributeValues = {':r': movie,}
+            UpdateExpression = "SET Favorite_Movie = list_append(Favorite_Movie, :r)", 
+            ExpressionAttributeValues = {':r': [movie],}
         )
         table.update_item(
             Key = {"Username": name}, 
-            UpdateExpression = "SET Rating = :r)", 
-            ExpressionAttributeValues = {':r': rating,}
+            UpdateExpression = "SET Rating = list_append(Rating, :r)", 
+            ExpressionAttributeValues = {':r': [rating],}
         )
         flask("User updated", "success")
     except:
