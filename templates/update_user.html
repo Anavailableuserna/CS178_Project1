@@ -6,6 +6,8 @@
 <body>
     <h1>Update User</h1>
     <form action="{{ url_for('update_user') }}" method="post">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
         <label for="language">Preferred Language:</label><br>
         <input type="text" id="language" name="language" required><br>
         <label for="genre">Favorite Genre:</label><br>
