@@ -58,7 +58,7 @@ def update_rating():
 
 
 
-def delete_movie(name):
+def delete_user(name):
     try:
         table.delete_item(
             Key = {'Username' : name}

@@ -25,7 +25,6 @@ def add_user():
 
         create_user(name, language, genre, movie, rating)
 
-        flash('User added successfully!', 'success')  # 'success' is a category; makes a green banner at the top
         # Redirect to home page or another page upon successful submission
         return redirect(url_for('home'))
     else:
@@ -40,9 +39,8 @@ def delete_user():
         
         # Process the data (e.g., add it to a database)
         # For now, let's just print it to the console
-        print("Name:", name, "deleted from database")
+        delete_user(name)
         
-        flash('User deleted successfully!', 'success')  # 'success' is a category; makes a green banner at the top
         # Redirect to home page or another page upon successful submission
         return redirect(url_for('home'))
     else:
