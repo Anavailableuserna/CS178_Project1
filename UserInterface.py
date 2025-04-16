@@ -34,8 +34,6 @@ def display_user():
     return user_list
 def change_user(name, language, genre, movie, rating):
     try:
-
-        
         table.update_item(
             Key = {"Username": name}, 
             UpdateExpression = "SET Preferred_Language = :str", 
