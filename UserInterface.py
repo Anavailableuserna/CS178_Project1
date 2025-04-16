@@ -43,27 +43,27 @@ def display_user():
     for user in response["Items"]:
         user_list.append((user["Username"], user['Preferred_Language'], user['Favorite_Genre'], user['Favorite_Movie'], user['Rating']))
     return user_list
-def change_user(username, language, genre, movie, rating):
+def change_user(name, language, genre, movie, rating):
     try:
         table.update_item(
-            Key = {"Username": username}, 
-            UpdateExpression = "SET Preferred_Language = list_append(Preferred_Language, :r)", 
-            ExpressionAttributeValues = {':r': [language],}
+            Key = {"Username": name}, 
+            UpdateExpression = "SET Preferred_Language = :r)", 
+            ExpressionAttributeValues = {':r': language,}
         )
         table.update_item(
-            Key = {"Username": username}, 
-            UpdateExpression = "SET Favorite_Genre = list_append(Favorite_Genre, :r)", 
-            ExpressionAttributeValues = {':r': [genre],}
+            Key = {"Username": name}, 
+            UpdateExpression = "SET Favorite_Genre = :r)", 
+            ExpressionAttributeValues = {':r': genre,}
         )
         table.update_item(
-            Key = {"Username": username}, 
-            UpdateExpression = "SET Favorite_Movie = list_append(Favorite_Movie, :r)", 
-            ExpressionAttributeValues = {':r': [movie],}
+            Key = {"Username": name}, 
+            UpdateExpression = "SET Favorite_Movie = :r)", 
+            ExpressionAttributeValues = {':r': movie,}
         )
         table.update_item(
-            Key = {"Username": username}, 
-            UpdateExpression = "SET Rating = list_append(Rating, :r)", 
-            ExpressionAttributeValues = {':r': [rating],}
+            Key = {"Username": name}, 
+            UpdateExpression = "SET Rating = :r)", 
+            ExpressionAttributeValues = {':r': rating,}
         )
         flask("User updated", "success")
     except:
