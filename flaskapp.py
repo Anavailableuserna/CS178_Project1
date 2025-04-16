@@ -64,7 +64,7 @@ def update_user():
         movie = request.form['movie']
         rating = request.form['rating']
 
-        change_user(username, language, genre, movie, rating)
+        change_user(name, language, genre, movie, rating)
     else:
         return render_template('update_user.html')
 @app.route('/popularity')
