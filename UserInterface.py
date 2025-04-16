@@ -48,7 +48,7 @@ def change_user(name, language, genre, movie, rating):
         user_list= []
         for user in response["Items"]:
             user_list.append((user["Username"]))
-        if user name not in user_list
+        if name not in user_list
             throw Exception():
         
         table.update_item(
