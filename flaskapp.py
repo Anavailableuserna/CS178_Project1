@@ -39,7 +39,7 @@ def delete_user():
         
         # Process the data (e.g., add it to a database)
         # For now, let's just print it to the console
-        delete_user(name)
+        remove_user(name)
         
         # Redirect to home page or another page upon successful submission
         return redirect(url_for('home'))
