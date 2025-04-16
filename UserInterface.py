@@ -45,17 +45,35 @@ def display_user():
     return user_list
 def change_user(username, language, genre, movie, rating):
     try:
-        title=input("What is the movie title? ")
-        rating = int(input("What is the rating: "))
-    
+
         table.update_item(
-            Key = {"Title": title}, 
+            Key = {"Username": username}, 
             UpdateExpression = "SET Ratings = list_append(Ratings, :r)", 
             ExpressionAttributeValues = {':r': [rating],}
         )
-        print("Movie updated")
+        table.update_item(
+            Key = {"Username": username}, 
+            UpdateExpression = "SET Preferred_Language = list_append(Preferred_Language, :r)", 
+            ExpressionAttributeValues = {':r': [language],}
+        )
+        table.update_item(
+            Key = {"Username": username}, 
+            UpdateExpression = "SET Favorite_Genre = list_append(Favorite_Genre, :r)", 
+            ExpressionAttributeValues = {':r': [genre],}
+        )
+        table.update_item(
+            Key = {"Username": username}, 
+            UpdateExpression = "SET Favorite_Movie = list_append(Favorite_Movie, :r)", 
+            ExpressionAttributeValues = {':r': [movie],}
+        )
+        table.update_item(
+            Key = {"Username": username}, 
+            UpdateExpression = "SET Rating = list_append(Rating, :r)", 
+            ExpressionAttributeValues = {':r': [rating],}
+        )
+        flask("User updated", "success")
     except:
-        print("error in updating movie rating")
+        print("error in updating user")
 
 
 
