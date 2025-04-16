@@ -36,7 +36,7 @@ def print_movie(movie_dict):
     print(" Year: ", movie_dict.get("Year"))
     print()
 
-def print_all_movies():
+def display_user():
     response = table.scan() #get all of the movies
     for movie in response["Items"]:
         print_movie(movie)
