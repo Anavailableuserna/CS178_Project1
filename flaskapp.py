@@ -65,6 +65,7 @@ def update_user():
         rating = request.form['rating']
 
         change_user(name, language, genre, movie, rating)
+        return redirect(url_for('home'))
     else:
         return render_template('update_user.html')
 @app.route('/popularity')
