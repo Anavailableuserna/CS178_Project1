@@ -21,7 +21,7 @@ def execute_query(query, args=()):
 
 def display_html(rows):
     html = ""
-    html += """<table><tr><th>movie_id</th><th>title</th><th>popularity</th></tr>"""
+    html += """<table><tr><th>movie_id</th><th>title</th><th>popularity</th><th>Genre</th></tr>"""
     for r in rows:
         html += "<tr><td>" + str(r[0]) + "</td><td>" + str(r[1]) + "</td><td>" + str(r[2]) + "</td><td>" + str(r[3]) + "</td></tr>"
     html += "</table></body>"
