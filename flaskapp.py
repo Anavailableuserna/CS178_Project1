@@ -70,7 +70,7 @@ def update_user():
 def popularity():
     #Gets 25 most popular movies
     rows = execute_query("""SELECT movie_id, title, popularity, language_name,
-                        FROM movie JOIN language using (movie_id)
+                        FROM movie JOIN movie_language using (movie_id)
                         ORDER BY popularity DESC
                         Limit 25""")
     return display_html(rows)
