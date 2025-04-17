@@ -10,6 +10,7 @@ table = dynamodb.Table(TABLE_NAME)
 
 def create_user(name, language, genre, movie, rating):
     try:
+        #creates new user by adding entries to table
         table.put_item(
             Item={
                 'Username': name,
@@ -26,14 +27,17 @@ def create_user(name, language, genre, movie, rating):
 
 
 def display_user():
-    response = table.scan() #get all of the movies
-    rows = 0
+    response = table.scan() #get all of the users
     user_list= []
+    #seperates all users in a list
     for user in response["Items"]:
         user_list.append((user["Username"], user['Preferred_Language'], user['Favorite_Genre'], user['Favorite_Movie'], user['Rating']))
     return user_list
+
+
 def change_user(name, language, genre, movie, rating):
     try:
+        #replaces all entries using username as the key
         table.update_item(
             Key = {"Username": name}, 
             UpdateExpression = "SET Preferred_Language = :str", 
@@ -61,6 +65,7 @@ def change_user(name, language, genre, movie, rating):
 
 def remove_user(name):
     try:
+        #deletes user entered into box
         table.delete_item(
             Key = {'Username' : name}
         )
