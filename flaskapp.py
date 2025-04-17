@@ -69,7 +69,7 @@ def update_user():
 @app.route('/popularity')
 def popularity():
     #Gets 25 most popular movies
-    rows = execute_query("""SELECT title, popularity,
+    rows = execute_query("""SELECT movie_id, title, popularity,
                         FROM movie 
                         ORDER BY popularity DESC
                         Limit 25""")
