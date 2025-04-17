@@ -70,7 +70,7 @@ def update_user():
         return render_template('update_user.html')
 @app.route('/popularity')
 def popularity():
-    rows = execute_query("""SELECT movie_id, title, popularity, DISTINCT(genre_name)
+    rows = execute_query("""SELECT movie_id, title, popularity, DISTINCT(genre_name),
                         FROM movie JOIN genre
                         ORDER BY popularity DESC
                         Limit 25""")
