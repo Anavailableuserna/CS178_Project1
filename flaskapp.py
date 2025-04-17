@@ -70,10 +70,10 @@ def update_user():
         return render_template('update_user.html')
 @app.route('/popularity')
 def popularity():
-    rows = execute_query("""SELECT movie_id, title, popularity
-                        FROM movie
+    rows = execute_query("""SELECT movie_id, title, popularity, genre_name
+                        FROM movie JOIN genre
                         ORDER BY popularity DESC
-                        Limit 10""")
+                        Limit 25""")
     return display_html(rows)
 
 # these two lines of code should always be the last in the file
