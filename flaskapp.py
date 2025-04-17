@@ -69,7 +69,7 @@ def update_user():
 @app.route('/popularity')
 def popularity():
     #Gets 25 most popular movies
-    rows = execute_query("""SELECT DISTINCT title, popularity, keyword_name
+    rows = execute_query("""SELECT DISTINCT(title), popularity, keyword_name
                         FROM movie JOIN movie_keywords using (movie_id) JOIN keyword using (keyword_id)
                         ORDER BY popularity DESC
                         Limit 25""")
